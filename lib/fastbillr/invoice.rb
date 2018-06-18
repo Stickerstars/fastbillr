@@ -86,12 +86,13 @@ module Fastbillr
         end
       end
 
-      def update(invoice)
+      def update(id, params)
+        invoice = new(params)
         invoice_data = upcase_keys_in_hashes(comply_with_crappy_api(invoice))
         if invoice.type != "draft"
           raise Error.new("no draft")
         else
-          response = Fastbillr::Request.post({"SERVICE" => "invoice.update", "DATA" => invoice_data}.to_json)
+          response = Fastbillr::Request.post({"SERVICE" => "invoice.update", "DATA" => invoice_data.merge("INVOICE_ID" => id)}.to_json)
           if response["ERRORS"]
             raise Error.new(response["ERRORS"].first)
           else
