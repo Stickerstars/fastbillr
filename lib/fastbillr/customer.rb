@@ -9,7 +9,7 @@ module Fastbillr
       :address, :address_2, :zipcode, :city, :country_code, :phone, :phone_2,
       :fax, :mobile, :email, :vat_id, :currency_code, :newsletter_optin,
       :lastupdate
-    ].each {|property| property property }
+    ].each { |property| property property }
 
     alias id customer_id
 
