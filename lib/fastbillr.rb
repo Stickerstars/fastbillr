@@ -17,4 +17,5 @@ module Fastbillr
   autoload :Dash, "fastbillr/dash"
   autoload :Customer, "fastbillr/customer"
   autoload :Invoice, "fastbillr/invoice"
+  autoload :Template, "fastbillr/template"
 end
